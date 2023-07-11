@@ -15,13 +15,12 @@
         <li class="nav-item dropdown pe-3">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile.jpeg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2" data-bs-toggle="dropdown" aria-expanded="false">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2" data-bs-toggle="dropdown" aria-expanded="false">{{profileData.Name}}</span>
           </a><!-- End Profile Iamge Icon -->
         
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile" [class.show]="profileDropdownOpen" (clickOutside)="closeProfileDropdown()">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>{{profileData.Name}}</h6>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -58,7 +57,7 @@
             </li>
         
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" routerLink="/signout">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -81,7 +80,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " routerLink="/dashboard">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -100,13 +99,15 @@
         </a>
         <ul [ngClass]="{'collapse': isFeesCollapsed}" id="fees-nav">
           <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Fee structure</span>
+            <a href="#">
+              <i class="bi bi-card-text"></i>
+              <span>Fee structure</span>
             </a>
           </li>
           <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Fee Statement</span>
+            <a href="#">
+              <i class="bi bi-file-earmark-text"></i>
+            <span>Fee Statement</span>
             </a>
           </li>
         </ul>
@@ -136,22 +137,26 @@
         <ul [ngClass]="{'collapse': isProgramCollapsed}" id="icons-nav" data-bs-parent="#sidebar-nav">
           <li>
             <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>1st Year</span>
+              <i class="bi bi-book"></i>
+              <span>1st Year</span>
             </a>
           </li>
           <li>
             <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>2nd Year</span>
+              <i class="bi bi-book"></i>
+              <span>2nd Year</span>
             </a>
           </li>
           <li>
             <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>3rd Year</span>
+              <i class="bi bi-book"></i>
+              <span>3rd Year</span>
             </a>
           </li>
           <li>
             <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>4th Year</span>
+              <i class="bi bi-book"></i>
+              <span>4th Year</span>
             </a>
           </li>
         </ul>
@@ -169,7 +174,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" routerLink="/signout">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
@@ -179,6 +184,7 @@
     </ul>
 
   </aside><!-- End Sidebar-->
+
 
   <main id="main" class="main">
 
@@ -233,7 +239,7 @@
 
                     </div>
                     <div class="ps-3">
-                      <h6>7324</h6>
+                      <h6>{{profileData.Balance_LCY}}</h6>
 
                     </div>
                   </div>

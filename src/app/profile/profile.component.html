@@ -1,12 +1,109 @@
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+<aside id="sidebar" class="sidebar"YY>
+  <img src="assets/img/Ulogo.png" width="300">
+
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+
+    <li class="nav-item">
+      <a class="nav-link " routerLink="/dashboard">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li><!-- End Dashboard Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-menu-button-wide"></i><span>Report</span>
+      </a>
+    </li><!-- End Report Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-toggle="collapse" href="#fees-nav" (click)="toggleFeesCollapse()">
+        <i class="bi bi-journal-text"></i><span>Fees</span>
+        <i [class.bi-chevron-down]="isFeesCollapsed" [class.bi-chevron-up]="!isFeesCollapsed" class="bi ms-auto"></i>
+      </a>
+      <ul [ngClass]="{'collapse': isFeesCollapsed}" id="fees-nav">
+        <li>
+          <a href="icons-bootstrap.html">
+            <i class="bi bi-circle"></i><span>Fee structure</span>
+          </a>
+        </li>
+        <li>
+          <a href="icons-remix.html">
+            <i class="bi bi-circle"></i><span>Fee Statement</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Fees Nav -->
+    <!-- End Fees Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="bi bi-layout-text-window-reverse"></i><span>Exam</span>
+      </a>
+      
+    </li><!-- End Exam Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link"  href="#">
+        <i class="bi bi-bar-chart"></i><span>Units</span>
+      </a>
+      <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      </ul>
+    </li><!-- End Units Nav -->
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-toggle="collapse" href="#icons-nav" (click)="toggleProgramCollapse()">
+        <i class="bi bi-gem"></i><span>Program</span>
+        <i [class.bi-chevron-down]="isProgramCollapsed" [class.bi-chevron-up]="!isProgramCollapsed" class="bi ms-auto"></i>
+      </a>
+      <ul [ngClass]="{'collapse': isProgramCollapsed}" id="icons-nav" data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="icons-bootstrap.html">
+            <i class="bi bi-circle"></i><span>1st Year</span>
+          </a>
+        </li>
+        <li>
+          <a href="icons-remix.html">
+            <i class="bi bi-circle"></i><span>2nd Year</span>
+          </a>
+        </li>
+        <li>
+          <a href="icons-boxicons.html">
+            <i class="bi bi-circle"></i><span>3rd Year</span>
+          </a>
+        </li>
+        <li>
+          <a href="icons-boxicons.html">
+            <i class="bi bi-circle"></i><span>4th Year</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Icons Nav -->
+    <!-- End Icons Nav -->
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" routerLink="/profile">
+        <i class="bi bi-person"></i>
+        <span>Profile</span>
+      </a>
+    </li><!-- End Profile Page Nav -->
 
     
 
-  </header><!-- End Header -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" routerLink="/signout">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>Logout</span>
+      </a>
+    </li><!-- End Logout Page Nav -->
 
-  
 
+  </ul>
+
+</aside><!-- End Sidebar-->
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -28,14 +125,9 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/profile.jpeg" alt="Profile" class="rounded-circle">
-              <h2>{{user.UserNeme}}</h2>
-              <h3>FULL STACK DEV</h3>
-              <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div>
+              <h2>{{profileData.Name}}</h2>
+              <h3>{{profileData.UserName}}</h3>
+             
             </div>
           </div>
 
@@ -68,44 +160,47 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
 
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Name}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                    <div class="col-lg-3 col-md-4 label">Course</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Course}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
+                    <div class="col-lg-3 col-md-4 label">Course Name</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Course_Name}}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">USA</div>
+                    <div class="col-lg-3 col-md-4 label">School Name</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.SchoolName}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Address}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Phone_No}}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">user.email</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Email}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Age</div>
+                    <div class="col-lg-9 col-md-8">{{profileData.Age}}</div>
                   </div>
 
                 </div>

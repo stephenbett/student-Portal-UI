@@ -24,7 +24,7 @@
                     <p class="text-center small">Enter yourdetails to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" (ngSubmit)="register()" novalidate>
                     <div class="col-12">
                       <label for="yourName" class="form-label">Student Number</label>
                       <input type="text" name="name" class="form-control" id="yourName"[(ngModel)]="user.StudentNo" required>
@@ -36,6 +36,7 @@
                       <label for="yourEmail" class="form-label">Your Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" [(ngModel)]="user.Email" required>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      <!-- <div class="invalid-feedback" *ngIf="yourEmail.invalid && (yourEmail.dirty || yourEmail.touched)"> Please enter a valid Email address! </div> -->
                     </div>
 
                     
@@ -66,8 +67,7 @@
                     <div class="col-12">
                       <p class="small mb-0">Already have an account? <a routerLink="/login">Log in</a></p>
                     </div>
-                  </form>
-
+                  </form> 
                 </div>
               </div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,25 +9,54 @@ import { UserService } from '../user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user: any; 
+user: any; 
+profileData :any =[]
+No: any
+isSidebarOpen = true;
+isFeesCollapsed = true;
+isProgramCollapsed = true;
+profileDropdownOpen: boolean = false
+  
+  
+  constructor(private userService: UserService, private studentService: StudentService) { }
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    this.userService.getUserInfo(this.user ).subscribe(
-
-      response => {
-        //console.log(response)
-        // Assign the user details to the component variable
-        this.user = response;
-        // localStorage.setItem('email', response.email,)
-        console.log(response)
-        console.log(this.user)
+  
+  
+  ngOnInit(): void {
+    this.getProfileData()
+    
+  }
+  
+  getProfileData(){
+    this.userService.getUserInfo(this.user).subscribe(
+      data=>{
+        this.profileData=data;
+        console.log(data)
+        console.log(this.profileData)
       },
       error => {
         console.error('Failed to fetch user details');
       }
-    );
+      );
+  
   }
+  toggleSidebar(){
+
+    this.isSidebarOpen  = !this.isSidebarOpen;
+  }
+  
+  toggleFeesCollapse() {
+      this.isFeesCollapsed = !this.isFeesCollapsed;
+    }
+    
+    
+  toggleProgramCollapse() {
+      this.isProgramCollapsed = !this.isProgramCollapsed;
+    }
+  
+    closeProfileDropdown() {
+      this.profileDropdownOpen = false;
+    }
+  
 
 }

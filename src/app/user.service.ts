@@ -31,7 +31,7 @@ export class UserService {
       "Authorization":`Bearer ${token}`
 
     })
-    return this.http.get<any>(this.apiUrl +'api/Account/userinfo',{headers})
+    return this.http.get<any>(this.apiUrl +'api/Account/userInfo',{headers})
 
   }
 

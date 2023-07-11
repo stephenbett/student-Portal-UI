@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClickOutsideDirective } from './click-outside.directive';
+import { SignoutComponent } from './signout/signout.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ClickOutsideDirective } from './click-outside.directive';
     LoginComponent,
     DashboardComponent,
     ProfileComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    SignoutComponent
   ],
   imports: [
     BrowserModule,
